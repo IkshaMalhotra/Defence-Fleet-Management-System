@@ -12,7 +12,7 @@ const signToken = (user) =>
       email: user.email,
       role: user.role,
     },
-    process.env.JWT_SECRET,
+    "testsecret", // process.env.JWT_SECRET
     { expiresIn: "7d" }
   );
 

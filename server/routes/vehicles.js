@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Vehicle = require("../models/Vehicle");
-const protect = require("../middleware/protect");
+const protect = require("../middleware/authMiddleware");
 
 // All vehicle routes require login
 router.use(protect);

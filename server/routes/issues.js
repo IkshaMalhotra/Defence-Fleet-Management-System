@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Issue = require("../models/Issue");
+const protect = require("../middleware/authMiddleware");
+
+// All issue routes require login
+router.use(protect);
 
 // create issue
 router.post("/", async (req, res) => {
