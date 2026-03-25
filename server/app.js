@@ -9,7 +9,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -19,7 +19,7 @@ app.use(express.json());
 // routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/vehicles", require("./routes/vehicles"));
-app.use("/api/issues", require("./routes/issues"));
+app.use("/api/maintenance", require("./routes/issues"));
 app.use("/api/maintenance", require("./routes/issues")); // kept same as your original functionality
 
 app.get("/api/health", (_req, res) => {
