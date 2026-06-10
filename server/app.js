@@ -62,7 +62,7 @@ app.use(
 );
 
 // React Routes
-app.get("*", (_req, res) => {
+app.use((_req, res) => {
   res.sendFile(
     path.join(__dirname, "../client/dist/index.html")
   );
