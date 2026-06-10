@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
@@ -12,7 +12,7 @@ connectDB();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: true,
     credentials: true,
   })
 );
@@ -54,11 +54,18 @@ app.get("/test", async (req, res) => {
   }
 });
 
-// 404 Handler
-app.use((_req, res) => {
-  res.status(404).json({
-    error: "Route not found",
-  });
+// Serve React Frontend
+app.use(
+  express.static(
+    path.join(__dirname, "../client/dist")
+  )
+);
+
+// React Routes
+app.get("*", (_req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../client/dist/index.html")
+  );
 });
 
 // Error Handler
