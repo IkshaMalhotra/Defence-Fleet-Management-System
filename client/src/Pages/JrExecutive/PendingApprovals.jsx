@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Layout from "../../components/Layout";
+import Layout from "../../Components/Layout";
 import { maintenanceAPI, handleAPIError } from '../../utils/Api';
 import { CheckCircle2, XCircle, Clock, AlertCircle } from "lucide-react";
 
